@@ -13,7 +13,6 @@ export function renderPaymentSummary() {
 
     shippingPriceCents += deliveryOption.priceCents;
     totalItem += cartItem.quantity;
-    console.log(totalItem);
   });
   const totalBeforeTaxCents = productPriceCents + shippingPriceCents;
   const taxCents = totalBeforeTaxCents * 0.1;

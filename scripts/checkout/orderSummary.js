@@ -14,7 +14,10 @@ function updateCartQuantity() {
   cart.forEach((cartItem) => {
     cartQuantity += cartItem.quantity;
   });
-  return cartQuantity;
+
+  document.querySelector(
+    ".return-to-home-link"
+  ).innerHTML = `${cartQuantity} items`;
 }
 
 export function renderOrderSummary() {
@@ -79,6 +82,7 @@ export function renderOrderSummary() {
         </div>
       </div>
     `;
+    updateCartQuantity();
   });
 
   function deliveryOptionsHTML(matchingProduct, cartItem) {
@@ -130,7 +134,7 @@ export function renderOrderSummary() {
         `.js-cart-item-container-${productId}`
       );
       container.remove();
-
+      updateCartQuantity();
       renderPaymentSummary();
     });
   });
@@ -145,18 +149,6 @@ export function renderOrderSummary() {
   });
 }
 
-/* function updateCartQuantity() {
-  let cartQuantity = 0;
-
-  cart.forEach((cartItem) => {
-    cartQuantity += cartItem.quantity;
-  });
-
-  document.querySelector(
-    ".return-to-home-link"
-  ).innerHTML = `${cartQuantity} items`;
-} */
-
-document.querySelector(
-  ".return-to-home-link"
-).innerHTML = `${updateCartQuantity()} items`;
+// document.querySelector(
+//   ".return-to-home-link"
+// ).innerHTML = `${updateCartQuantity()} items`;

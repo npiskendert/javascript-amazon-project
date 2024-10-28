@@ -28,6 +28,12 @@ function saveToStorage() {
 export function addToCart(productId, quantity) {
   let matchingItem;
 
+  const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`);
+  addedMessage.classList.add("added-to-cart-visible");
+  setTimeout(() => {
+    addedMessage.classList.remove("added-to-cart-visible");
+  }, 1500);
+
   cart.forEach((cartItem) => {
     if (productId === cartItem.productId) {
       matchingItem = cartItem;

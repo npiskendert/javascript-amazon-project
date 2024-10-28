@@ -46,7 +46,7 @@ products.forEach((product) => {
 
       <div class="product-spacer"></div>
 
-      <div class="added-to-cart">
+      <div class="added-to-cart js-added-to-cart-${product.id}">
         <img src="images/icons/checkmark.png">
         Added
       </div>
@@ -57,6 +57,7 @@ products.forEach((product) => {
       </button>
     </div>
   `;
+  updateCartQuantity();
 });
 
 document.querySelector(".js-products-grid").innerHTML = productsHTML;

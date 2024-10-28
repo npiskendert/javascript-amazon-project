@@ -8,6 +8,15 @@ import {
 } from "../../data/deliveryOptions.js";
 import { renderPaymentSummary } from "./paymentSummary.js";
 
+function updateCartQuantity() {
+  let cartQuantity = 0;
+
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+  return cartQuantity;
+}
+
 export function renderOrderSummary() {
   let cartSummaryHTML = "";
 
@@ -135,3 +144,19 @@ export function renderOrderSummary() {
     });
   });
 }
+
+/* function updateCartQuantity() {
+  let cartQuantity = 0;
+
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+
+  document.querySelector(
+    ".return-to-home-link"
+  ).innerHTML = `${cartQuantity} items`;
+} */
+
+document.querySelector(
+  ".return-to-home-link"
+).innerHTML = `${updateCartQuantity()} items`;
